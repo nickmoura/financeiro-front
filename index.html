@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestão Financeira</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/styles/style.css">
+</head>
+<body>
+    <div class="content container my-4">
+        <header class="text-center mb-4">
+            <h1>Sistema de Gestão Financeira</h1>
+        </header>
+        <main>
+            <section id="accounts" class="mb-4">
+                <h2>Contas</h2>
+                <div id="accounts-list" class="mb-3"></div>
+                <button class="btn btn-primary" onclick="openAccountForm()">Cadastrar Conta</button>
+                <form id="account-form" onsubmit="addAccount(event)" class="mt-3 d-none">
+                    <input type="text" id="account-name" class="form-control mb-2" placeholder="Nome da Conta" required>
+                    <input type="number" id="account-balance" class="form-control mb-2" placeholder="Saldo Inicial" required>
+                    <button type="submit" class="btn btn-success">Salvar Conta</button>
+                </form>
+            </section>
+
+            <section id="credit-cards" class="mb-4">
+                <h2>Cartões de Crédito</h2>
+                <div id="credit-cards-list" class="mb-3"></div>
+                <button class="btn btn-primary" onclick="openCreditCardForm()">Cadastrar Cartão</button>
+                <form id="credit-card-form" onsubmit="addCreditCard(event)" class="mt-3 d-none">
+                    <input type="text" id="card-name" class="form-control mb-2" placeholder="Nome do Cartão" required>
+                    <input type="number" id="card-limit" class="form-control mb-2" placeholder="Limite" required>
+                    <input type="date" id="card-due-date" class="form-control mb-2" placeholder="Data de Vencimento" required>
+                    <button type="submit" class="btn btn-success">Salvar Cartão</button>
+                </form>
+            </section>
+
+            <section id="transactions" class="mb-4">
+                <h2>Histórico de Transações</h2>
+                <div id="transactions-list" class="mb-3"></div>
+                <button class="btn btn-primary" onclick="openTransactionForm()">Cadastrar Transação</button>
+                <form id="transaction-form" onsubmit="addTransaction(event)" class="mt-3 d-none">
+                    <input type="text" id="transaction-desc" class="form-control mb-2" placeholder="Descrição" required>
+                    <input type="number" id="transaction-amount" class="form-control mb-2" placeholder="Valor" required>
+                    <input type="date" id="transaction-date" class="form-control mb-2" placeholder="Data da Transação" required>
+                    <input type="date" id="settlement-date" class="form-control mb-2" placeholder="Data de Liquidação" required>
+                    <select id="transaction-type" class="form-select mb-2" required>
+                        <option value="">Tipo</option>
+                        <option value="entrada">Entrada</option>
+                        <option value="saida">Saída</option>
+                    </select>
+                    <select id="transaction-category" class="form-select mb-2" required>
+                        <option value="">Categoria</option>
+                    </select>
+                    <button type="submit" class="btn btn-success">Salvar Transação</button>
+                </form>
+            </section>
+        </main>
+    </div>
+    <script src="assets/scripts/helpers.js"></script>
+    <script src="assets/scripts/api.js"></script>
+    <script src="assets/scripts/app.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
